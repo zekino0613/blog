@@ -1,0 +1,379 @@
+@charset "UTF-8";
+
+html {
+  font-size: 100%;
+
+}
+body {
+  font-size: 1rem;
+  color: #2a2a2a;
+  font-family: 'Noto Sans JP', sans-serif;
+  background-color: white;
+  width: 100%;
+    }
+
+ a {
+  color: #2a2a2a;
+  text-decoration: none; /*標準時の下線を削除*/
+}
+
+img {
+  width: 100%;
+}
+li {
+  list-style: none;
+  color: #505050;
+}
+
+ .container
+,.pickup {
+  max-width: 1200px;
+  padding: 0 16px;
+  margin: 0 auto;
+}
+/* --read_more----------------------------------------------------------- */
+.read_more {
+  position: relative; /*疑似要素使用のため*/
+  font-size: 0.8rem;
+}
+
+.read_more::after {
+content: "";
+position: absolute;
+bottom: 1px;
+left: 0;
+width: 100%;
+height: 1px;
+background: black;
+visibility: visible;    /*要素の可視・不可視を切り替えられる。visibleで表示*/
+opacity: 1;
+transition: all 200ms ease;  /*ホバー時の速度などを設定*/
+}
+
+.read_more:hover::after  {
+ visibility: hidden;    /*要素の可視・不可視を切り替えられる。hiddenで非表示 */
+ bottom: -3px; 
+ opacity: 0;            /*滑らかにフェードアウト */
+ transition: 0.3s;      /*時間*/
+
+}
+
+/* ↓ */
+/*
+「position: absolute;」を設定し、left、bottomで下線の位置を調整
+widthとheightで線の長さと高さを設定
+疑似要素で線を表示させるためには、「content: '';」を設定すること
+「transition: all 200ms ease;」でホバー時の速度などを設定
+*/
+/* .readmore a::after {
+  content: '';
+  position: absolute;
+  height: 1px;
+  width: 100%;
+  left: 0;
+  bottom: 0;
+  background: #333;
+  transition: all 200ms ease;
+} */
+
+
+/* .readmore a:hover::after {      
+  opacity: 1;
+  transform: translateY(3px);
+} */
+
+/* ホバー時の下線の設定
+「opacity: 0;」下線を非表示
+「transform: translateY(3px);」下に3px移動
+→下に3px移動しながら下線を非表示にする */
+
+
+/* --header------------------------------------------------------ */
+#header {
+  position: sticky;  /*上から要素を固定する。*/
+  z-index: 999;      /*header要素を階層の一番に連番される。*/
+  top: 0;            /*headerのスタート地 */
+  left: 0;           
+}
+
+#header .logo {
+  max-width: 1200px;
+  background-color: white;
+  height: 70px;
+  position: relative;
+  margin: 0 auto;
+  padding: 0 16px;
+  display: flex;
+  align-items: center;
+}
+
+#header .logo img {
+  width: 150px;
+}
+
+#header .header-nav  {
+  height: 40px;
+  background-color: #2a2a2a;
+  position: relative;
+  display: flex;
+  align-items: center ;
+}
+
+#header .header-nav  ul{
+  width: 1200px;
+  margin: 0 auto;
+  padding: 0 16px;
+  display: flex;
+  align-items: center ;
+}
+
+#header .header-nav  a{
+  color: white;
+  padding-right: 60px;
+  font-size: small;
+}
+
+/* --pickup------------------------------------------------------ */
+.pickup {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 40px;
+}
+
+.pickup .title {
+  font-size: 1rem;
+  margin-top: 15px;
+  text-align: left;
+}
+
+ .pickup article {
+  width: 70%;
+  margin-left:20px;
+  text-align: center;
+}
+
+.pickup .read_more {
+  display: inline-block;
+}
+
+.pickup article:first-child {
+  margin-left:0;
+}
+
+/* --container------------------------------------------------- */
+.container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 70px;
+  width: 100%;
+}
+/* --main ---------------------------------------------------------- */
+.container .main {
+  width: 67%;
+  text-align: center;
+}
+.main .title {
+  font-size: 1.4rem;
+  letter-spacing: 0.1rem;
+  margin-bottom: 10px;
+  text-align: left;
+}
+
+.main ul {
+  display: flex;
+  margin: 10px 0;
+  font-size: 0.8rem;
+}
+
+.main li {
+  margin-right: 20px;
+}
+
+.main p {
+  margin: 20px 40px 30px 40px;
+  font-size: 0.9rem;
+  text-align: left;
+  letter-spacing: 0.1rem;
+}
+
+.main article {
+  margin-bottom: 80px;
+}
+
+/* --aside---------------------------------------------- */
+ .container .aside  {
+  width: 30%;
+}
+
+.aside h3,.ranking h3 {
+ text-align: center;
+ margin: 30px 0;
+}
+
+.aside article {
+  margin-bottom: 30px;
+}
+/* --author---------------------------------------------------- */
+.aside .author {
+  text-align: center;
+  margin-bottom: 30px;
+}
+.aside .author p {
+  font-size: 0.8rem;
+  margin-top: 30px;
+  letter-spacing: 0.1rem;
+  text-align: left;
+}
+
+.aside .author img {
+  width: 35%;
+  border-radius: 50%;
+  margin-bottom:30px;
+}
+
+/* --ranking---------------------------------------------------- */
+.ranking {
+  margin-top: 60px ;
+}
+
+.ranking .section-title {
+  margin-bottom: 20px;
+}
+.ranking h4 {
+  font-size: 0.8rem;
+  font-weight: normal;
+  margin: 8px 0;
+}
+
+/* -- archive---------------------------------------------------------- */
+.archive .archive-list {
+  width: 100%;
+  margin-top: 30px;
+  margin: 0 auto;
+}
+
+.archive .archive-list li {
+  height: 60px;
+  padding: 20px ;
+  border-top: #232323 solid 1px ;
+}
+
+.archive .archive-list li:last-child {
+  border-bottom: #232323 solid 1px ;
+}
+/* --footer--------------------------------------------------------- */
+#footer {
+  margin-top: 130px;
+  font-size: 0.85rem;
+  font-weight: 540;
+  background-color: #f7f7f7;
+}
+
+#footer .content {
+  display: flex;
+  justify-content: space-between;
+  max-width: 1200px;
+  padding: 0 16px;
+  margin: 0 auto;
+}
+/* --item --about------------------------------------------- */
+#footer .content .item {
+  width: calc(92%/3);
+  margin: 30px auto;
+}
+#footer .content .item .section-title {
+  margin-bottom:20px ;
+}
+
+#footer .content .item .about-text {
+  margin-bottom: 20px;
+}
+
+#footer .content .item .about-list li {
+  margin-bottom: 3px;
+  position: relative;
+  padding-left: 15px;
+}
+
+#footer .content .item .about-list li::before {
+  content: "▶";
+  position: absolute;
+  color: #2a2a2a;
+  left: 0px;
+}
+/* --item --menu--------------------------------------------- */
+#footer .content .item  .menu-list  li {
+  height: 50px;
+  padding: 15px ;
+  border-top: #292928 solid 1px ;
+}
+
+#footer .content .item  .menu-list li:last-child {
+  border-bottom: #292928 solid 1px ;
+}
+#footer .footer-text {
+  font-size: 0.8rem;
+  padding: 10px;
+  text-align: center;
+}
+
+/* --SP-------------------------------------------- */
+@media screen and (max-width: 768px) {
+
+#header .header-nav {
+  overflow-x: scroll;
+}
+
+/* --pickup------------------------------------------------------ */
+.pickup {
+  flex-direction: column;
+  margin-top: 30px;
+ }
+.pickup .title {
+  margin-bottom: 10px;
+}
+ .pickup article {
+  width: 100%;
+  margin: 0 0 20px 0;
+  }
+/* --container------------------------------------------------- */
+.container {
+  flex-direction: column;
+  margin-top: 100px;
+  width: 100%;
+}
+/* --main ---------------------------------------------------------- */
+.container .main {
+  width: 100%;
+}
+/* --aside---------------------------------------------- */
+ .container .aside  {
+  width: 100%;
+}
+/* --author---------------------------------------------------- */
+.aside .author .section-title {
+  margin: 0;  
+}
+.aside .author p {
+  font-size: 0.8rem;
+}
+.aside .author img {
+  width: 21%;
+}
+/* -- archive---------------------------------------------------------- */
+.archive .archive-list li {
+  font-size: 0.8rem;
+}
+/* --footer--------------------------------------------------------- */
+#footer .content .item {
+  width: 100%;
+  margin: 50px 0 0 0;
+}
+#footer .content {
+  flex-direction: column;
+  width: 100%;
+}
+#footer .content .section-title {
+  padding-bottom: 10px;
+}
+}
